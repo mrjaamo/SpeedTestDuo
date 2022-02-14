@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Jarno.unity
+    guid: b09a39edca807b34985495cfb85039ed
+  - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 6c1a255060df1fb4aaf1204465a26808
   m_configObjects: {}
