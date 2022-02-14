@@ -9,4 +9,9 @@ public class SceneMang : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(SceneName);
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

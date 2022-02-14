@@ -107,6 +107,7 @@ public class GameManagerUI : MonoBehaviour
         if (Clickedcolor != color)
         {
             points--;
+            ShowColor();
         }
 
         if (Clickedcolor == color)
@@ -131,10 +132,6 @@ public class GameManagerUI : MonoBehaviour
             Player2Text.text = points.ToString();
 
         }
-    }
-    void addpoints()
-    {
-    
     }
 
 }
