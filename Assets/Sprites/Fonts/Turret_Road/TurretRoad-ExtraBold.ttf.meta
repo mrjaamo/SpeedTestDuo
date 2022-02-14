@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 462c5163c19c5494a9adc927f9eaad65
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Turret Road
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 26820e91dd3c8af49a8cea12d412c865, type: 3}
+  - {fileID: 12800000, guid: c4fc36d53631e324995471f8f2c07faa, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
