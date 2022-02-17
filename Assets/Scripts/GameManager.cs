@@ -4,6 +4,7 @@ using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,14 +12,15 @@ public class GameManager : MonoBehaviour
     int turnNumber;
     int score = 0;
     int colourNumber;
-    int successAmount = -1;
+    int successAmount = 0;
     public bool RoleOrder = true;
     public bool correctButton;
     public Button[] myButton;
-    public GameObject Blue;
-    public GameObject Green;
-    public GameObject Red;
-    public GameObject Yellow;
+    public GameObject Blue, Green, Red, Yellow;
+    public TMP_Text timerText;
+    public TMP_Text scoreText;
+    public TMP_Text pressCounterText;
+    float timeLeft;
     RectTransform objectRectTransform;
     Canvas canvas;
 
@@ -29,10 +31,35 @@ public class GameManager : MonoBehaviour
         turnNumber = turnAmount(turnNumber);
         GameLoop();
         objectRectTransform = canvas.GetComponent<RectTransform>();
+        scoreText.text = "Score: " + score.ToString();
+        pressCounterText.text = "Correct presses: " + successAmount.ToString();
+    }
+
+    void Update()
+    {
+        timerText.text = "Time left: " + timeLeft.ToString("0.0");
+
+        if (timeLeft > 0)
+        {
+        timeLeft -= Time.deltaTime;
+        }
+        else if (timeLeft < 0)
+        {
+            timeLeft = 0;
+            // Game Over
+        }
     }
 
     public void GameLoop()
     {
+        if (timeLeft <= 2.0f && successAmount > 50)
+        {
+            timeLeft = 2.0f;
+        }
+        else
+        {
+            timeLeft = 7.0f - (successAmount * 0.1f);
+        }
         colourNumber = colourPick();
         Destroy(GameObject.FindGameObjectWithTag("Colour"));
         StartCoroutine(ChangeColour());
@@ -84,12 +111,14 @@ public class GameManager : MonoBehaviour
         {
             score = score + 10;
             successAmount++;
-            Debug.Log(score);
+            scoreText.text = "Score: " + score.ToString();
+            pressCounterText.text = "Correct presses: " + successAmount.ToString();
             GameLoop();
         }
         else
         {
             score = score - 10;
+            scoreText.text = "Score: " + score.ToString();
         }
     }
     IEnumerator ChangeColour()
