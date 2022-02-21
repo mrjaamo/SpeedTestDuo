@@ -9,43 +9,54 @@ public class GameManagerUI : MonoBehaviour
     public TMP_Text Player1Text;
     public TMP_Text Player2Text;
 
+    public TMP_Text timerText;
+    float timer = 2;
+
     string CurrentColor;
     public int color;
 
     public int points = 0;
 
+    int turnNumber;
     int clickedColor;
 
-    public bool Player1Plays = true;
+    public bool Player1Plays = false;
     // Start is called before the first frame update
     void Start()
     {
+        turnNumber = turnAmount(turnNumber);
         SwitchSide();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
+        }
+        else if (timer <= 0)
+        {
+            timer = 0;
+            // Game Over
+        }
+    }
 
+    void GameOver()
+    {
+        Player1Text.text = "Finish!";
+        Player2Text.text = "Finish!";
+    }
 
+    void GameOverScore()
+    {
+        Player1Text.text = points.ToString();
+        Player2Text.text = points.ToString();
     }
 
 
     void SwitchSide()
     {
-        if (Player1Plays == true)
-        {
-
-            Player1Plays = false;
-            color = Random.Range(6, 10);
-        }
-
-        else
-        {
-            Player1Plays = true;
-            color = Random.Range(1, 5);
-        }
-
+        color = Random.Range(1, 9);
         SetColor();
     }
 
@@ -72,22 +83,22 @@ public class GameManagerUI : MonoBehaviour
                 // color green
                 CurrentColor = "Green";
                 break;
-            case 6:
+            case 5:
                 // color red
                 CurrentColor = "Red";
                 break;
-            case 7:
+            case 6:
                 // color blue
                 CurrentColor = "Blue";
 
                 break;
-            case 8:
+            case 7:
                 // color yellow
                 CurrentColor = "Yellow";
 
 
                 break;
-            case 9:
+            case 8:
                 // color green
                 CurrentColor = "Green";
 
@@ -111,25 +122,43 @@ public class GameManagerUI : MonoBehaviour
         if (Clickedcolor == color)
         {
             points++;
+            if (turnNumber == 0)
+            {
+                SwitchSide();
+                turnNumber = turnAmount(turnNumber);
+            }
+            else if (turnNumber >= 1)
+            {
+                turnNumber--;
+            }
+
             SwitchSide();
+            ShowColor();
+
+            Debug.Log(turnNumber);
         }
      
     }
 
     void ShowColor()
     {
-        if (Player1Plays == true)
+        if (color <= 4)
         {
             Player1Text.text = points.ToString();
             Player2Text.text = CurrentColor;
         }
 
-        if (Player1Plays == false)
+        if (color > 4)
         {
             Player1Text.text = CurrentColor;
             Player2Text.text = points.ToString();
-
         }
     }
 
+    public int turnAmount(int randomNumber)
+    {
+        int i = randomNumber;
+        i = Random.Range(1, 7);
+        return i;
+    }
 }
