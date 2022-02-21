@@ -20,8 +20,6 @@ public class GameManagerUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Player1Text = GameObject.Find("Player1Info").GetComponent<TMP_Text>();
-        Player2Text = GameObject.Find("Player2Info").GetComponent<TMP_Text>();
         SwitchSide();
     }
 
