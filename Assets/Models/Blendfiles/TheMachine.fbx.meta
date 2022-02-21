@@ -1,29 +1,9 @@
 fileFormatVersion: 2
-guid: 09dd6b208d76c0a40b94191b2e40cb5b
+guid: 1d6fb17ab0b785c4b854ce27219a2d38
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: MachineMaterial
-    second: {fileID: 2100000, guid: d6222053982406444bef1a07bd73c981, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Metal
-    second: {fileID: 2100000, guid: 77e732f993b129d47b7cd7f311885e8b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Picture
-    second: {fileID: 2100000, guid: 0d15cd5c7016d07419c798773125ea9c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: TransparentPlastic
-    second: {fileID: 2100000, guid: 0f54fcae449bfdd4a82d2e4a2b1e1d16, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -59,10 +39,10 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importVisibility: 0
+    importVisibility: 1
     importBlendShapes: 1
-    importCameras: 0
-    importLights: 0
+    importCameras: 1
+    importLights: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
