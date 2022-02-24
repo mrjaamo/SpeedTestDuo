@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
 
 public class GameManagerUI : MonoBehaviour
@@ -9,8 +11,7 @@ public class GameManagerUI : MonoBehaviour
     public TMP_Text Player1Text;
     public TMP_Text Player2Text;
 
-    public TMP_Text timerText;
-    float timer = 2;
+    float timer = 60;
 
     string CurrentColor;
     public int color;
@@ -20,46 +21,57 @@ public class GameManagerUI : MonoBehaviour
     int turnNumber;
     int clickedColor;
 
+    public Button[] myButton;
+    public GameObject gameObject;
+    public GameObject mainMenuButton;
 
-    public bool gameOver = false;
+    bool gameIsRunning = true;
 
     public bool Player1Plays = false;
     // Start is called before the first frame update
     void Start()
     {
+        myButton = gameObject.GetComponentsInChildren<Button>();
         turnNumber = turnAmount(turnNumber);
         SwitchSide();
+        mainMenuButton.SetActive(false);
     }
 
     void Update()
     {
-        if (timer > 0)
+        if (gameIsRunning)
         {
-            timer -= Time.deltaTime;
-        }
-        else if (timer <= 0)
-        {
-            timer = 0;
-            gameOver = true;
+            if (timer > 0)
+            {
+                timer -= Time.deltaTime;
+            }
+            else if (timer <= 0)
+            {
+                gameIsRunning = false;
+                timer = 0;
 
-            GameOver();
-            // Game Over
+                GameOver();
+            }
         }
     }
 
     void GameOver()
     {
 
+        foreach (Button btn in myButton)
+        {
+            if (btn.IsActive())
+            {
+                btn.enabled= false;
+            }
+            else
+            {
+                btn.enabled = true;
+            }
+        }
 
-
-
+        mainMenuButton.SetActive(true);
         Player1Text.text = "Finish!";
-        Player2Text.text = "Finish!";
-    }
-
-    void GameOverScore()
-    {
-        Player1Text.text = points.ToString();
         Player2Text.text = points.ToString();
     }
 

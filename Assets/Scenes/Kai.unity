@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: b1f2fcabda79fe141a571d132587000f, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 669f2e2d26ee7694cb4adfe5915d27f2, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1027,9 +1027,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 675211800}
+  - component: {fileID: 675211801}
   m_Layer: 0
   m_Name: GameObjectsAndUI
-  m_TagString: Untagged
+  m_TagString: Game
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1050,6 +1051,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &675211801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675211799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2796bc2e4827f345bd39086135455c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,7 +1666,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1308318020}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 675211801}
+        m_TargetAssemblyTypeName: SceneMang, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Jarno
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1308318020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1827,10 +1852,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player1Text: {fileID: 2030654608}
   Player2Text: {fileID: 1064268709}
-  timerText: {fileID: 0}
   color: 0
   points: 0
-  gameOver: 0
+  myButton: []
+  gameObject: {fileID: 675211799}
+  mainMenuButton: {fileID: 1308318017}
   Player1Plays: 1
 --- !u!1001 &1693245613
 PrefabInstance:
