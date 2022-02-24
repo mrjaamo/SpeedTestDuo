@@ -20,6 +20,9 @@ public class GameManagerUI : MonoBehaviour
     int turnNumber;
     int clickedColor;
 
+
+    public bool gameOver = false;
+
     public bool Player1Plays = false;
     // Start is called before the first frame update
     void Start()
@@ -37,12 +40,19 @@ public class GameManagerUI : MonoBehaviour
         else if (timer <= 0)
         {
             timer = 0;
+            gameOver = true;
+
+            GameOver();
             // Game Over
         }
     }
 
     void GameOver()
     {
+
+
+
+
         Player1Text.text = "Finish!";
         Player2Text.text = "Finish!";
     }
