@@ -746,6 +746,9 @@ MonoBehaviour:
   Player2Text: {fileID: 0}
   color: 0
   points: 0
+  myButton: []
+  gameObject: {fileID: 0}
+  mainMenuButton: {fileID: 0}
   Player1Plays: 1
 --- !u!224 &565820933 stripped
 RectTransform:
@@ -992,7 +995,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 110
+  m_fontSize: 106.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2047,7 +2050,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 96.15
+  m_fontSize: 103.25
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2845,7 +2848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 560761569921347250, guid: ba28bbb23ccbfc448b03dc9a442eae86, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: GameScene
+      value: Kai
       objectReference: {fileID: 0}
     - target: {fileID: 560761569921347250, guid: ba28bbb23ccbfc448b03dc9a442eae86, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
