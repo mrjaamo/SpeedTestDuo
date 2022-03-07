@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using UnityEngine.Localization.Settings;
 
 public class GameManagerUI : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class GameManagerUI : MonoBehaviour
 
     string CurrentColor;
     public int color;
+    public int index;
 
     public int points = 0;
 
@@ -71,7 +73,18 @@ public class GameManagerUI : MonoBehaviour
         }
 
         mainMenuButton.SetActive(true);
-        Player1Text.text = "Finish!";
+        if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[0])
+        {
+            Player1Text.text = "Finish!";
+        }
+        else if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[1])
+        {
+            Player1Text.text = "Loppu!";
+        }
+        else if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[2])
+        {
+            Player1Text.text = "Sluta!";
+        }
         Player2Text.text = points.ToString();
     }
 
@@ -84,51 +97,153 @@ public class GameManagerUI : MonoBehaviour
 
     void SetColor()
     {
-        switch (color)
+        if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[0])
         {
-            case 1:
-                // color red
-                CurrentColor = "Red";
-                break;
-            case 2:
-                // color blue
-                CurrentColor = "Blue";
+            switch (color)
+            {
+                case 1:
+                    // color red
+                    CurrentColor = "Red";
+                    break;
+                case 2:
+                    // color blue
+                    CurrentColor = "Blue";
 
-                break;
-            case 3:
-                // color yellow
-                CurrentColor = "Yellow";
-
-
-                break;
-            case 4:
-                // color green
-                CurrentColor = "Green";
-                break;
-            case 5:
-                // color red
-                CurrentColor = "Red";
-                break;
-            case 6:
-                // color blue
-                CurrentColor = "Blue";
-
-                break;
-            case 7:
-                // color yellow
-                CurrentColor = "Yellow";
+                    break;
+                case 3:
+                    // color yellow
+                    CurrentColor = "Yellow";
 
 
-                break;
-            case 8:
-                // color green
-                CurrentColor = "Green";
+                    break;
+                case 4:
+                    // color green
+                    CurrentColor = "Green";
+                    break;
+                case 5:
+                    // color red
+                    CurrentColor = "Red";
+                    break;
+                case 6:
+                    // color blue
+                    CurrentColor = "Blue";
 
-                break;
-            default:
-                // code block
-                CurrentColor = "";
-                break;
+                    break;
+                case 7:
+                    // color yellow
+                    CurrentColor = "Yellow";
+
+
+                    break;
+                case 8:
+                    // color green
+                    CurrentColor = "Green";
+
+                    break;
+                default:
+                    // code block
+                    CurrentColor = "";
+                    break;
+            }
+
+        }
+        else if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[1])
+        {
+            switch (color)
+            {
+                case 1:
+                    // color red
+                    CurrentColor = "Punainen";
+                    break;
+                case 2:
+                    // color blue
+                    CurrentColor = "Sininen";
+
+                    break;
+                case 3:
+                    // color yellow
+                    CurrentColor = "Keltainen";
+
+
+                    break;
+                case 4:
+                    // color green
+                    CurrentColor = "Vihreä";
+                    break;
+                case 5:
+                    // color red
+                    CurrentColor = "Punainen";
+                    break;
+                case 6:
+                    // color blue
+                    CurrentColor = "Sininen";
+
+                    break;
+                case 7:
+                    // color yellow
+                    CurrentColor = "Keltainen";
+
+
+                    break;
+                case 8:
+                    // color green
+                    CurrentColor = "Vihreä";
+
+                    break;
+                default:
+                    // code block
+                    CurrentColor = "";
+                    break;
+            }
+        }
+        else if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[2])
+        {
+            switch (color)
+            {
+                case 1:
+                    // color red
+                    CurrentColor = "Röd";
+                    break;
+                case 2:
+                    // color blue
+                    CurrentColor = "Blå";
+
+                    break;
+                case 3:
+                    // color yellow
+                    CurrentColor = "Gul";
+
+
+                    break;
+                case 4:
+                    // color green
+                    CurrentColor = "Grön";
+                    break;
+                case 5:
+                    // color red
+                    CurrentColor = "Röd";
+                    break;
+                case 6:
+                    // color blue
+                    CurrentColor = "Blå";
+
+                    break;
+                case 7:
+                    // color yellow
+                    CurrentColor = "Gul";
+
+
+                    break;
+                case 8:
+                    // color green
+                    CurrentColor = "Grön";
+
+                    break;
+                default:
+                    // code block
+                    CurrentColor = "";
+                    break;
+            }
         }
         ShowColor();
     }

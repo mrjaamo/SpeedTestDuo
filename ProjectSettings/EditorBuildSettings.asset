@@ -14,4 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Kai.unity
     guid: 54ab229bad9bb714aa54e55e941e4274
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: b1e227e3af604604e98a4d5a6c54bd7e, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: 2c96b186769992a45a58d3f601ce38f9, type: 2}
