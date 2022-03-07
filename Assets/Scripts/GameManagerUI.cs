@@ -27,6 +27,9 @@ public class GameManagerUI : MonoBehaviour
 
     bool gameIsRunning = true;
 
+    AudioSource audioS;
+    public AudioClip[] buttonSounds;
+
     public bool Player1Plays = false;
     // Start is called before the first frame update
     void Start()
@@ -35,6 +38,8 @@ public class GameManagerUI : MonoBehaviour
         turnNumber = turnAmount(turnNumber);
         SwitchSide();
         mainMenuButton.SetActive(false);
+
+        audioS = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -135,6 +140,8 @@ public class GameManagerUI : MonoBehaviour
 
     public void ClickColor(int Clickedcolor)
     {
+        audioS.PlayOneShot(buttonSounds[Random.Range(0, buttonSounds.Length)]);
+
         if (Clickedcolor != color)
         {
             points--;
