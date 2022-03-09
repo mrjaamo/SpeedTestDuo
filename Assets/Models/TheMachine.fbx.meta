@@ -17,6 +17,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Picture
+    second: {fileID: 2100000, guid: 0d15cd5c7016d07419c798773125ea9c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: TransparentPlastic
     second: {fileID: 2100000, guid: 0f54fcae449bfdd4a82d2e4a2b1e1d16, type: 2}
   materials:
