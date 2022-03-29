@@ -1063,6 +1063,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2796bc2e4827f345bd39086135455c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AndroidMenu: {fileID: 0}
+  PCMenu: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1851,13 +1853,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e53a225f728f64fa4b7108b847d449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMenuButtonTexts:
+  - {fileID: 1841000380}
+  - {fileID: 1873982841}
   Player1Text: {fileID: 2030654608}
   Player2Text: {fileID: 1064268709}
   color: 0
   points: 0
-  myButton: []
+  myButton:
+  - {fileID: 185312740}
+  - {fileID: 1901018125}
+  - {fileID: 543933924}
+  - {fileID: 613275115}
+  - {fileID: 736133545}
+  - {fileID: 8433048}
+  - {fileID: 649758838}
   gameObject: {fileID: 675211799}
-  mainMenuButton: {fileID: 1308318017}
+  mainMenuButton: {fileID: 1308318019}
   buttonSounds:
   - {fileID: 8300000, guid: ca29ff083e03d7148a61bc2fe72960fb, type: 3}
   - {fileID: 8300000, guid: 119360a5b1c7c42479330569542087ad, type: 3}

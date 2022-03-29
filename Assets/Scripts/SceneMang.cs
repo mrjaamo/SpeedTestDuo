@@ -5,7 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class SceneMang : MonoBehaviour
 {
-   public void LoadScene(string SceneName)
+
+    public GameObject AndroidMenu, PCMenu;
+
+    void Start()
+    {
+        if(Application.isMobilePlatform){
+            AndroidMenu.SetActive(true);
+            PCMenu.SetActive(false);
+        }else{
+            AndroidMenu.SetActive(false);
+            PCMenu.SetActive(true);
+        }
+    }
+
+    public void LoadScene(string SceneName)
     {
         SceneManager.LoadSceneAsync(SceneName);
     }

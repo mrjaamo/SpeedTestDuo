@@ -8,6 +8,9 @@ using TMPro;
 
 public class GameManagerUI : MonoBehaviour
 {
+    public bool showTime = true;
+    public TMP_Text[] mainMenuButtonTexts;
+
     public TMP_Text Player1Text;
     public TMP_Text Player2Text;
 
@@ -23,7 +26,7 @@ public class GameManagerUI : MonoBehaviour
 
     public Button[] myButton;
     public GameObject gameObject;
-    public GameObject mainMenuButton;
+    public Button mainMenuButton;
 
     bool gameIsRunning = true;
 
@@ -34,10 +37,11 @@ public class GameManagerUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myButton = gameObject.GetComponentsInChildren<Button>();
+        //myButton = gameObject.GetComponentsInChildren<Button>();
         turnNumber = turnAmount(turnNumber);
         SwitchSide();
-        mainMenuButton.SetActive(false);
+        //mainMenuButton.SetActive(false);
+        mainMenuButton.interactable = false;
 
         audioS = GetComponent<AudioSource>();
     }
@@ -49,6 +53,9 @@ public class GameManagerUI : MonoBehaviour
             if (timer > 0)
             {
                 timer -= Time.deltaTime;
+
+                if(showTime)
+                    DisplayTime();
             }
             else if (timer <= 0)
             {
@@ -75,7 +82,12 @@ public class GameManagerUI : MonoBehaviour
             }
         }
 
-        mainMenuButton.SetActive(true);
+        //mainMenuButton.SetActive(true);
+        foreach(TMP_Text txt in mainMenuButtonTexts){
+            txt.text = "Main Menu";
+        }
+
+        mainMenuButton.interactable = true;
         Player1Text.text = "Finish!";
         Player2Text.text = points.ToString();
     }
@@ -189,5 +201,19 @@ public class GameManagerUI : MonoBehaviour
         int i = randomNumber;
         i = Random.Range(1, 7);
         return i;
+    }
+
+    void DisplayTime()
+    {
+        float Tminutes = Mathf.Floor(timer / 60);
+        float Tseconds = Mathf.RoundToInt(timer % 60);
+
+        foreach(TMP_Text txt in mainMenuButtonTexts){
+            if(Tseconds < 10){
+                txt.text = Tminutes + ":0" + Tseconds;
+            }else{
+                txt.text = Tminutes + ":" + Tseconds;
+            }
+        }
     }
 }
