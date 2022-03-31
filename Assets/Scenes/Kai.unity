@@ -1853,6 +1853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e53a225f728f64fa4b7108b847d449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showTime: 1
   mainMenuButtonTexts:
   - {fileID: 1841000380}
   - {fileID: 1873982841}
@@ -1868,6 +1869,7 @@ MonoBehaviour:
   - {fileID: 736133545}
   - {fileID: 8433048}
   - {fileID: 649758838}
+  - {fileID: 1753228589}
   gameObject: {fileID: 675211799}
   mainMenuButton: {fileID: 1308318019}
   buttonSounds:

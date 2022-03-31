@@ -21,6 +21,7 @@ public class GameManagerUI : MonoBehaviour
 
     public int points = 0;
 
+
     int turnNumber;
     int clickedColor;
 
@@ -34,16 +35,18 @@ public class GameManagerUI : MonoBehaviour
     public AudioClip[] buttonSounds;
 
     public bool Player1Plays = false;
+
+    int lastColor = -1;
     // Start is called before the first frame update
     void Start()
     {
         //myButton = gameObject.GetComponentsInChildren<Button>();
-        turnNumber = turnAmount(turnNumber);
+        //turnNumber = turnAmount(turnNumber);
         SwitchSide();
         //mainMenuButton.SetActive(false);
         mainMenuButton.interactable = false;
 
-        audioS = GetComponent<AudioSource>();
+        audioS = GetComponent<AudioSource>();  
     }
 
     void Update()
@@ -96,6 +99,13 @@ public class GameManagerUI : MonoBehaviour
     void SwitchSide()
     {
         color = Random.Range(1, 9);
+
+        while (color == lastColor) // Check if the random number is the same as last one
+        {
+            color = Random.Range(1, 9); // Reroll number
+        }
+        lastColor = color;
+
         SetColor();
     }
 
@@ -106,6 +116,7 @@ public class GameManagerUI : MonoBehaviour
             case 1:
                 // color red
                 CurrentColor = "Red";
+
                 break;
             case 2:
                 // color blue
@@ -116,15 +127,16 @@ public class GameManagerUI : MonoBehaviour
                 // color yellow
                 CurrentColor = "Yellow";
 
-
                 break;
             case 4:
                 // color green
                 CurrentColor = "Green";
+
                 break;
             case 5:
                 // color red
                 CurrentColor = "Red";
+
                 break;
             case 6:
                 // color blue
@@ -135,7 +147,6 @@ public class GameManagerUI : MonoBehaviour
                 // color yellow
                 CurrentColor = "Yellow";
 
-
                 break;
             case 8:
                 // color green
@@ -145,6 +156,7 @@ public class GameManagerUI : MonoBehaviour
             default:
                 // code block
                 CurrentColor = "";
+
                 break;
         }
         ShowColor();
@@ -163,7 +175,7 @@ public class GameManagerUI : MonoBehaviour
         if (Clickedcolor == color)
         {
             points++;
-            if (turnNumber == 0)
+            /*if (turnNumber == 0)
             {
                 SwitchSide();
                 turnNumber = turnAmount(turnNumber);
@@ -171,12 +183,10 @@ public class GameManagerUI : MonoBehaviour
             else if (turnNumber >= 1)
             {
                 turnNumber--;
-            }
+            }*/
 
             SwitchSide();
             ShowColor();
-
-            Debug.Log(turnNumber);
         }
      
     }
